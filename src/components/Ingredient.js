@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import photos from '../data/photos';
 import { useParams } from 'react-router-dom';
 
@@ -28,10 +28,20 @@ const Ingredient = ({ amount, setAmount }) => {
     }
   };
 
-  const handlePlus = (index) => {
-    setAmount(amount.with(index, amount[index] + 1));
+  const handlePlus = (name, index) => {
+    let value = window.localStorage.getItem(name);
+    window.localStorage.setItem(name, String(Number(value) + 1));
+    setAmount(amount.with(index, Number(value) + 1));
   };
-  console.log(amount);
+
+  useEffect(() => {
+    arr.map(async (a) => {
+      let number = Number(window.localStorage.getItem(a.img));
+      console.log(number);
+      const getNumber = await setAmount(amount.with(a.id, number));
+    });
+  }, []);
+
   return (
     <>
       {arr.map((photo, i) => {
@@ -42,7 +52,7 @@ const Ingredient = ({ amount, setAmount }) => {
             </div>
             <div>{photo.img}</div>
             <button onClick={() => handleMinus(photo.id)}>-</button>
-            <button onClick={() => handlePlus(photo.id)}>+</button>
+            <button onClick={() => handlePlus(photo.img, photo.id)}>+</button>
             <span>{amount[photo.id]}</span>
           </div>
         );
