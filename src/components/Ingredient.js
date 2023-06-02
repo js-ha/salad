@@ -20,10 +20,16 @@ const Ingredient = ({ amount, setAmount }) => {
     arr = dressing;
   }
 
-  const handleMinus = (index) => {
-    if (amount[index] > 1) {
-      setAmount(amount.with(index, amount[index] - 1));
+  const handleMinus = (name, index) => {
+    let value = window.localStorage.getItem(name); // "3"
+
+    if (value > 1) {
+      window.localStorage.setItem(name, String(Number(value) - 1)); // "닭가슴살", "1"
+      setAmount(amount.with(index, Number(value) - 1));
     } else {
+      // 0 or 1
+      // window.localStorage.setItem(name, String(0));
+      window.localStorage.removeItem(name);
       setAmount(amount.with(index, 0));
     }
   };
@@ -34,13 +40,13 @@ const Ingredient = ({ amount, setAmount }) => {
     setAmount(amount.with(index, Number(value) + 1));
   };
 
-  useEffect(() => {
-    arr.map(async (a) => {
-      let number = Number(window.localStorage.getItem(a.img));
-      console.log(number);
-      const getNumber = await setAmount(amount.with(a.id, number));
-    });
-  }, []);
+  // useEffect(() => {
+  //   arr.map(async (a) => {
+  //     let number = Number(window.localStorage.getItem(a.img));
+  //     console.log(number);
+  //     const getNumber = await setAmount(amount.with(a.id, number));
+  //   });
+  // }, []);
 
   return (
     <>
@@ -51,7 +57,7 @@ const Ingredient = ({ amount, setAmount }) => {
               <img className='photo' src={`${process.env.PUBLIC_URL}/img/${photo.img}.jpg`} />
             </div>
             <div>{photo.img}</div>
-            <button onClick={() => handleMinus(photo.id)}>-</button>
+            <button onClick={() => handleMinus(photo.img, photo.id)}>-</button>
             <button onClick={() => handlePlus(photo.img, photo.id)}>+</button>
             <span>{amount[photo.id]}</span>
           </div>
