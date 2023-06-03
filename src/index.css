@@ -1,3 +1,40 @@
-.photo {
-  width: 300px;
+#root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main_wrapper {
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+
+  margin-top: 100px;
+}
+
+.main_logo {
+  width: 60%;
+  height: auto;
+}
+
+.content {
+  width: 100%;
+  background: #eee;
+
+  display: flex;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+
+.content_photo {
+  width: 150px;
+  height: auto;
 }

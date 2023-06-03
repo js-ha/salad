@@ -26,10 +26,8 @@ const Cart = () => {
     <div>
       {arr.map((ar, i) => {
         return (
-          <div key={i}>
-            <div>
-              <img className='photo' src={`${process.env.PUBLIC_URL}/img/${ar.img}.jpg`} />
-            </div>
+          <div className='content' key={i}>
+            <img className='content_photo' src={`${process.env.PUBLIC_URL}/img/${ar.img}.jpg`} />
             <div>{ar.img}</div>
             <span>{ar.g * ar.수량}g</span>
             <span>{ar.수량}개</span>

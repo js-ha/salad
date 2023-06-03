@@ -3,9 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 
 function NavTabsExample() {
   return (
-    <Card>
+    <Card style={{ width: '100%' }}>
       <Card.Header>
-        <Nav variant='tabs' defaultActiveKey='/vegetable'>
+        <Nav variant='tabs'>
           <Nav.Item>
             <Nav.Link href='/vegetable'>채소류</Nav.Link>
           </Nav.Item>

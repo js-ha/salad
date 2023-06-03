@@ -52,9 +52,12 @@ const Ingredient = ({ amount, setAmount }) => {
     <>
       {arr.map((photo, i) => {
         return (
-          <div key={i}>
+          <div className='content' key={i}>
             <div>
-              <img className='photo' src={`${process.env.PUBLIC_URL}/img/${photo.img}.jpg`} />
+              <img
+                className='content_photo'
+                src={`${process.env.PUBLIC_URL}/img/${photo.img}.jpg`}
+              />
             </div>
             <div>{photo.img}</div>
             <button onClick={() => handleMinus(photo.img, photo.id)}>-</button>
