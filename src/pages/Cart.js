@@ -23,7 +23,7 @@ const Cart = () => {
   });
 
   return (
-    <div>
+    <div className='main_wrapper'>
       {arr.map((ar, i) => {
         return (
           <div className='content' key={i}>
