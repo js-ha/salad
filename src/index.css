@@ -46,3 +46,9 @@
   width: 150px;
   height: auto;
 }
+
+.content_btn {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}

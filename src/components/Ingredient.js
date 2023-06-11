@@ -59,10 +59,22 @@ const Ingredient = ({ amount, setAmount }) => {
                 src={`${process.env.PUBLIC_URL}/img/${photo.img}.jpg`}
               />
             </div>
-            <div>{photo.img}</div>
-            <button onClick={() => handleMinus(photo.img, photo.id)}>-</button>
-            <button onClick={() => handlePlus(photo.img, photo.id)}>+</button>
-            <span>{amount[photo.id]}</span>
+            <div className='content_btn'>
+              <div>{photo.img}</div>
+              <button
+                onClick={() => handleMinus(photo.img, photo.id)}
+                style={{ marginLeft: '1rem' }}
+              >
+                -
+              </button>
+              <button
+                onClick={() => handlePlus(photo.img, photo.id)}
+                style={{ marginLeft: '0.1rem' }}
+              >
+                +
+              </button>
+              <span style={{ marginLeft: '1rem' }}>{amount[photo.id]}</span>
+            </div>
           </div>
         );
       })}

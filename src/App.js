@@ -21,7 +21,7 @@ function App() {
                 src={`${process.env.PUBLIC_URL}/img/salad.png`}
                 alt='main'
               />
-              <h2>개발샐발 커스텀 샐러드 만들기</h2>
+              <h2>커스텀 샐러드 만들기</h2>
               <Link to='/vegetable'>만들러 가기!</Link>
             </div>
           }
