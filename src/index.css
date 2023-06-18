@@ -52,3 +52,11 @@
   align-items: center;
   margin-left: 1rem;
 }
+
+.tab-link {
+  color: blue;
+}
+
+.tab-link.active {
+  color: orange;
+}
