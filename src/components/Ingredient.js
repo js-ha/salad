@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import photos from '../data/photos';
 import { useParams } from 'react-router-dom';
 
